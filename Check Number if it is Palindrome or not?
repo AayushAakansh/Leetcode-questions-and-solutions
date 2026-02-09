@@ -1,0 +1,39 @@
+//Code:
+
+bool isPalindrome(int x) {
+    
+    if (x<0)
+    {
+        return false;
+    }
+    if (0<=x<=9)
+    {
+        return true;
+    }
+    
+    if (10<=x<=99)
+    {
+        int m = x%10;
+        int n = x/10;
+        if (m==n)
+        {
+            return true;
+        }
+    }
+    int rev=0;
+    while (x!=NULL)
+    {
+        int temp = x%10;
+        rev = rev*10+temp;
+        x=x/10;
+    }
+    if (x == rev)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
+}
