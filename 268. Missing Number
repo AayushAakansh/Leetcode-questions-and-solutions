@@ -1,0 +1,15 @@
+// Code
+
+int missingNumber(int* nums, int numsSize) {
+    
+    int realsum = 0;
+    for (int i=0; i< numsSize; i++)
+    {
+        realsum = realsum + nums[i];
+    }
+    int expected = (numsSize*(numsSize+1))/2;
+    int final = expected - realsum;
+    return final;
+
+
+}
