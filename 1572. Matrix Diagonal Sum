@@ -1,0 +1,22 @@
+// Code
+
+int diagonalSum(int** mat, int matSize, int* matColSize) {
+    
+    int pdsum=0;
+    for(int i=0; i<matSize; i++)
+    {
+        pdsum=pdsum+mat[i][i];
+    }
+
+    int sdsum=0;
+    for(int j=0; j<matSize; j++)
+    {
+        if(j !=matSize -j-1)
+        {
+            sdsum=sdsum+mat[j][matSize-j-1];
+        }
+    
+
+    }
+    return pdsum+sdsum;
+}
