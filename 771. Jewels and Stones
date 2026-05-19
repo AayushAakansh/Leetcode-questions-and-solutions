@@ -1,0 +1,17 @@
+int numJewelsInStones(char* jewels, char* stones) {
+    
+    int l = strlen(stones);
+    int m = strlen(jewels);
+    int temp=0;
+    for(int i=0; i<l; i++)
+    {
+        for (int j=0; j<m; j++)
+        {
+            if(stones[i] == jewels[j])
+            {
+                temp++;
+            }
+        }
+    }
+    return temp;
+}
