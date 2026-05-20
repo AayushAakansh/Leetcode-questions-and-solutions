@@ -1,0 +1,27 @@
+int countDigitOne(int n) {
+    
+    long f = 1;
+    int count=0;
+
+    while(f<=n)
+    {
+        long l = n%f;
+        long curr = (n/f) % 10;
+        long h = n/ (f*10);
+
+        if (curr == 0)
+        {
+            count+=h*f;
+        }
+        else if (curr == 1)
+        {
+            count+= h*f + l + 1;
+        }
+        else
+        {
+            count += (h+1)*f;
+        }
+        f*=10;
+    }
+    return count;
+}
