@@ -1,0 +1,18 @@
+int numSquares(int n) {
+    
+    int x[n+1];
+    x[0]=0;
+    for (int i=1; i<=n; i++)
+    {
+        x[i] = INT_MAX;
+        for (int j=1; j*j<=i; j++)
+        {
+            int sq = j*j;
+            if (x[i-sq]+1 < x[i])
+            {
+                x[i] = x[i-sq] + 1;
+            }
+        }    
+        }
+    return x[n];    
+}
