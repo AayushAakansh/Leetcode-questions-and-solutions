@@ -1,0 +1,29 @@
+int heightChecker(int* heights, int heightsSize) {
+    
+    int original[heightsSize];
+    for(int i = 0; i<heightsSize; i++)
+    {
+        original[i] = heights[i];
+    }
+    for(int i=0; i<heightsSize-1; i++)
+    {
+        for(int j=0; j<heightsSize-i-1; j++)
+        {
+            if(heights[j] > heights[j+1])
+            {
+                int temp = heights[j];
+                heights[j] = heights[j+1];
+                heights[j+1] = temp;
+            }
+        } 
+    }
+    int count=0;
+    for(int i=0; i<heightsSize; i++)
+    {
+        if(heights[i] != original[i])
+        {
+            count++;
+        }
+    }
+    return count;
+}
