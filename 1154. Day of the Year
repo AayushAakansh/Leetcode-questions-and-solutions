@@ -1,0 +1,16 @@
+int dayOfYear(char* date) {
+    
+    int year, month, day;
+    sscanf(date, "%d-%d-%d", &year, &month, &day);
+    int monthDays[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+    int total = day;
+    for(int i=0; i<month-1; i++)
+    {
+        total = total + monthDays[i];
+    }
+    if(month > 2 && ((year % 4 == 0 && year % 100 != 0 ) || (year % 400 == 0)))
+    {
+        total++;
+    }
+    return total;
+}
