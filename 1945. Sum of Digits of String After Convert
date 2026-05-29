@@ -1,0 +1,22 @@
+int getLucky(char* s, int k) {
+    
+    int sum=0;
+    int l = strlen(s);
+    for(int i=0; i<l; i++)
+    {
+        int val = s[i] - 'a' + 1;
+        sum = sum + (val/10);
+        sum = sum+ (val%10);
+    }
+    for(int j = 1; j<k; j++)
+    {
+        int new = 0;
+        while(sum>0)
+        {
+            new = new + sum %10;
+            sum = sum/10;
+        }
+        sum = new;
+    }
+    return sum;
+}
