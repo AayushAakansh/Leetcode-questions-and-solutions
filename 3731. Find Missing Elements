@@ -1,0 +1,45 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* findMissingElements(int* nums, int numsSize, int* returnSize) {
+    
+    int max = nums[0];
+    int min = nums[0];
+    for(int i=0; i<numsSize; i++)
+    {
+        if(nums[i] < min)
+        {
+            min = nums[i];
+        }
+    }
+    for(int i=0; i<numsSize; i++)
+    {
+        if(nums[i] > max)
+        {
+            max = nums[i];
+        }
+    }
+
+    *returnSize = max-min+1;
+    int *result = (int*) malloc((*returnSize) * sizeof(int));
+
+    int count=0;
+    for(int j = min; j<=max; j++)
+    {
+        int found=0;
+        for(int k = 0; k<numsSize; k++)
+        {
+            if (nums[k] == j)
+            {
+                found = 1;
+                break;
+            }
+        }
+        if(!found)
+        {
+            result[count++] = j;
+        }
+    }
+    *returnSize = count;
+    return result;
+}
