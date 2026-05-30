@@ -1,0 +1,23 @@
+int sumOfDigit(int x)
+{
+    int sum = 0;
+    while (x!=0)
+    {
+        int temp = x % 10;
+        sum = sum + temp;
+        x = x/10;
+    }
+    return sum;
+}
+int smallestIndex(int* nums, int numsSize) {
+    
+    for(int i=0; i< numsSize; i++)
+    {
+        int sum = sumOfDigit(nums[i]);
+        if (sum == i)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
