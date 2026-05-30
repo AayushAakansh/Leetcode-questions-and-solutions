@@ -1,0 +1,29 @@
+int maxProduct(int n) {
+    
+    int count=0;
+    int ori = n;
+    while (n != 0)
+    {
+        int temp = n  % 10;
+        count++;
+        n = n/10;
+    }
+    int arr[count];
+    for(int i = 0; i<count; i++)
+    {
+        arr[i] = ori % 10;
+        ori = ori/10;
+    }
+    int max=0;
+    for(int i=0; i<count; i++)
+    {
+        for(int j=i+1; j< count; j++)
+        {
+            if(arr[i] * arr[j] > max)
+            {
+                max = arr[i] * arr[j];
+            }
+        }
+    }
+    return max;
+}
