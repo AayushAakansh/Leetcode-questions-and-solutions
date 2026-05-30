@@ -1,0 +1,27 @@
+bool validDigit(int n, int x) {
+    
+    int original = n;
+    int flag=0;
+    while(n !=0)
+    {
+        int temp = n % 10;
+        if (temp == x)
+        {
+            flag=1;
+            break;
+        }
+        n = n/10;
+    }
+    while (original >=10)
+    {
+        original = original /10;
+    }
+    if(flag == 1 && original != x)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
