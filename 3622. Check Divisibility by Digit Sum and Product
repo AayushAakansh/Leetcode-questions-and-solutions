@@ -1,0 +1,23 @@
+bool checkDivisibility(int n) {
+    
+    int sum = 0;
+    int ori = n;
+    int prod = 1;
+    while (n !=0)
+    {
+        int temp = n % 10;
+        sum = sum + temp;
+        prod = prod * temp;
+        n = n/10;
+    }
+    int total = sum + prod;
+
+    if (ori % total == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
