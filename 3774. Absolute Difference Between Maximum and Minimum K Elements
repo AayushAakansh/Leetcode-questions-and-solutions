@@ -1,0 +1,27 @@
+int absDifference(int* nums, int numsSize, int k) {
+    
+    for(int i = 0; i< numsSize-1; i++)
+    {
+        for(int j= 0; j< numsSize-i-1; j++)
+        {
+            if(nums[j] > nums[j+1])
+            {
+                int temp = nums[j];
+                nums[j] = nums[j+1];
+                nums[j+1] = temp;
+            }
+        }
+    }
+
+    int max = 0;
+    int min = 0;
+    int p1 = 0;
+    int p2 = numsSize-1;
+
+    while(k--)
+    {
+        min = min + nums[p1++];
+        max = max + nums[p2--];
+    }
+    return abs(max-min);
+}
