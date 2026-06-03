@@ -1,0 +1,34 @@
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+double* internalAngles(int* sides, int sidesSize, int* returnSize) {
+    
+    int a = sides[0];
+    int b = sides[1];
+    int c = sides[2];
+
+    if (!(a + b > c && b + c > a && a + c > b))
+    {
+        *returnSize = 0;
+        return NULL;
+    }
+    *returnSize = 3;
+    double *ans = (double*) malloc (3 *sizeof(double));
+    ans[0] = acos((b*b + c*c - a*a) /( 2.0*b*c)) * 180.0 / M_PI;
+    ans[1] = acos((a*a + c*c - b*b) / (2.0*a*c)) * 180.0 / M_PI;
+    ans[2] = acos((b*b + a*a - c*c) / (2.0*a*b)) * 180.0 / M_PI;
+
+    for(int i = 0; i < 2; i++)
+    {
+        for (int j = 0; j < 2-i; j++)
+        {
+            if(ans[j] > ans[j+1])
+            {
+                double temp = ans[j];
+                ans[j] = ans[j+1];
+                ans[j+1] = temp;
+            }
+        }
+    }
+    return ans;
+}
